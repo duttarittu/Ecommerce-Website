@@ -33,6 +33,9 @@ const Header = () => {
             <li>
               <NavLink to="/contact">contact</NavLink>
             </li>
+            <li>
+              <NavLink to="/login">Login/register</NavLink>
+            </li>
           </ul>
         </div>
 
