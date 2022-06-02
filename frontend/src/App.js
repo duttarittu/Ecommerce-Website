@@ -7,7 +7,7 @@ import Footer from "./component/layout/Footer/Footer.js"
 import Home from "./component/Home/Home.js";
 import ProductDetails from "./component/Product/ProductDetails.js";
 import LoginSignUp from './component/User/LoginSignUp';
-
+import NewProduct from "./component/PostAd/NewProduct";
 
 function App() {
   React.useEffect( ()=> {
@@ -25,6 +25,8 @@ function App() {
       <Route exact path="/" component={Home} />
       <Route exact path="/product/:id" component={ProductDetails} />
       <Route exact path="/login" component={LoginSignUp} />
+      <Route exact path="/createproduct" component={NewProduct} />
+      
       <Footer />
     </Router>
   )
