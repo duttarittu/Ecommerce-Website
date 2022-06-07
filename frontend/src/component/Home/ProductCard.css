@@ -1,0 +1,14 @@
+.row{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    
+  }
+.column{
+    width: 45%;
+
+}
+.column > h4{
+    color: green;
+    text-align: right;
+}

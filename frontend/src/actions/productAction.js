@@ -51,7 +51,7 @@ export const getProductDetails = (id) => async (dispatch) => {
   }
 };
 
-//New product
+// New product
 export const createProduct = (productData) => async (dispatch) => {
   try {
     dispatch({ type: NEW_PRODUCT_REQUEST });

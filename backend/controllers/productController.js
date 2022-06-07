@@ -5,7 +5,7 @@ const catchAsyncErrors = require('../middleware/catchAsyncErrors');
 const ApiFeatures = require("../utils/apifeatures");
 const cloudinary = require("cloudinary");
 
-//create Product --adimin
+//create Product 
 exports.createProduct = catchAsyncErrors(async (req,res,next) => {
   let images = [];
 
@@ -23,8 +23,10 @@ exports.createProduct = catchAsyncErrors(async (req,res,next) => {
     });
 
     imagesLinks.push({
-      public_id: result.public_id,
-      url: result.secure_url,
+      // public_id: result.public_id,
+      // url: result.secure_url,
+      public_id: "sample_id ",
+      url: "sampleurl.com"
     });
   }
 

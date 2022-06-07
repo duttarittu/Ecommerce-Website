@@ -10,7 +10,7 @@ const reducer = combineReducers({
     products: productReducer,
     productDetails: productDetailsReducer,
     user: userReducer,
-    newProduct: newProductReducer,
+    newProduct: newProductReducer, 
 }); 
 
 

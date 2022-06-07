@@ -7,7 +7,7 @@ import { Button } from "@material-ui/core";
 import MetaData from "../layout/MetaData";
 import AccountTreeIcon from "@material-ui/icons/AccountTree";
 import DescriptionIcon from "@material-ui/icons/Description";
-import StorageIcon from "@material-ui/icons/Storage";
+// import StorageIcon from "@material-ui/icons/Storage";
 import SpellcheckIcon from "@material-ui/icons/Spellcheck";
 import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 // import SideBar from "./Sidebar";
@@ -20,10 +20,12 @@ const NewProduct = ({ history }) => {
   const { loading, error, success } = useSelector((state) => state.newProduct);
 
   const [name, setName] = useState("");
+  const [location, setLocation] = useState("");
+  const [contact,setContact] = useState("");
   const [price, setPrice] = useState(0);
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
-  const [Stock, setStock] = useState(0);
+//   const [Stock, setStock] = useState(0);
   const [images, setImages] = useState([]);
   const [imagesPreview, setImagesPreview] = useState([]);
 
@@ -35,6 +37,7 @@ const NewProduct = ({ history }) => {
     "Attire",
     "Camera",
     "SmartPhones",
+    "Bikes",
   ];
 
   useEffect(() => {
@@ -45,7 +48,7 @@ const NewProduct = ({ history }) => {
 
     if (success) {
       alert.success("Product Created Successfully");
-      history.push("/admin/dashboard");
+      // history.push("/admin/dashboard");
       dispatch({ type: NEW_PRODUCT_RESET });
     }
   }, [dispatch, alert, error, history, success]);
@@ -56,10 +59,12 @@ const NewProduct = ({ history }) => {
     const myForm = new FormData();
 
     myForm.set("name", name);
+    myForm.set("locatoin", location);
+    myForm.set("contact", contact);
     myForm.set("price", price);
     myForm.set("description", description);
     myForm.set("category", category);
-    myForm.set("Stock", Stock);
+    // myForm.set("Stock", Stock);
 
     images.forEach((image) => {
       myForm.append("images", image);
@@ -98,7 +103,7 @@ const NewProduct = ({ history }) => {
             encType="multipart/form-data"
             onSubmit={createProductSubmitHandler}
           >
-            <h1>Create Product</h1>
+            <h1>Post your Ad Here</h1>
 
             <div>
               <SpellcheckIcon />
@@ -114,7 +119,7 @@ const NewProduct = ({ history }) => {
               <AttachMoneyIcon />
               <input
                 type="number"
-                placeholder="Price"
+                placeholder="Price in Rupees"
                 required
                 onChange={(e) => setPrice(e.target.value)}
               />
@@ -145,12 +150,23 @@ const NewProduct = ({ history }) => {
             </div>
 
             <div>
-              <StorageIcon />
+              <SpellcheckIcon />
               <input
-                type="number"
-                placeholder="Stock"
+                type="text"
+                placeholder="Location"
                 required
-                onChange={(e) => setStock(e.target.value)}
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+              />
+            </div>
+            <div>
+              <SpellcheckIcon />
+              <input
+                type="text"
+                placeholder="Contact details"
+                required
+                value={contact}
+                onChange={(e) => setContact(e.target.value)}
               />
             </div>
 

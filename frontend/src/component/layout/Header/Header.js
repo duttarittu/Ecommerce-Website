@@ -13,7 +13,7 @@ const Header = () => {
         {/* 1st logo part  */}
         <div className="logo">
           <h2>
-            Ecommerce
+            SEBEX
           </h2>
         </div>
 
@@ -25,11 +25,12 @@ const Header = () => {
               <NavLink to="/">Home</NavLink>
             </li>
             <li>
-              <NavLink to="/about">about</NavLink>
+              <NavLink to="/createproduct">Post your Ad</NavLink>
             </li>
             <li>
-              <NavLink to="/service">services</NavLink>
+              <NavLink to="/about">about</NavLink>
             </li>
+            
             <li>
               <NavLink to="/contact">contact</NavLink>
             </li>

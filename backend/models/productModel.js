@@ -6,7 +6,7 @@ const productSchema = mongoose.Schema({
         trim: true
     },
     description: {
-        type: String,
+        type: String, 
         required: [true, "please Enter product description"]
     },
     price:{
@@ -41,39 +41,48 @@ const productSchema = mongoose.Schema({
         maxLength:[4,"Stock cannot exceed 4 character"],
         default: 1
     },
-    numOfReviews: {
-        type: Number,
-        default: 0
+    location: {
+        type: String,
+        required:[true,"Please Enter your address"],
     },
-    reviews: [
-        {
-            user:{
-                type: mongoose.Schema.ObjectId,
-                ref: "User",
-                required: true,
-            },
-            name:{
-                type: String,
-                required: true,
-            },
-            rating:{
-                type: Number,
-                required: true,
-            },
-            comment:{
-                type: String,
-                required: true
-            }
-        }
-    ],
-    user:{
-        type: mongoose.Schema.ObjectId,
-        ref: "User",
-        required: true,
+    contact:{
+        type: String,
+        required: [true,"Please Enter contact details"],
     },
+
+    // numOfReviews: {
+    //     type: Number,
+    //     default: 0
+    // },
+//     reviews: [
+//         {
+//             user:{
+//                 type: mongoose.Schema.ObjectId,
+//                 ref: "User",
+//                 required: true,
+//             },
+//             name:{
+//                 type: String,
+//                 required: true,
+//             },
+//             rating:{
+//                 type: Number,
+//                 required: true,
+//             },
+//             comment:{
+//                 type: String,
+//                 required: true
+//             }
+//         }
+//     ],
+    // user:{
+    //     type: mongoose.Schema.ObjectId,
+    //     ref: "User",
+    //     required: true,
+    // },
     created:{
         type: Date,
-        default: Date.now
+        default: Date.now,
     }
 
 })

@@ -1,10 +1,12 @@
 import React, { Fragment, useEffect } from 'react';
 import Carousel from 'react-material-ui-carousel';
 import "./ProductDetails.css";
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useSelector, useDispatch } from "react-redux";
 import {clearErrors, getProductDetails} from "../../actions/productAction";
 import ReactStars from 'react-rating-stars-component';
 import {useAlert} from 'react-alert';
+
 
 const Product = ({match}) => {
     const dispatch = useDispatch();
@@ -18,19 +20,11 @@ const Product = ({match}) => {
         dispatch(getProductDetails(match.params.id))
     }, [dispatch,match.params.id],error,alert);
 
-    const options = {
-        edit: false,
-        color: "rgba(20,20,20,0.1)",
-        activeColor: "tomato",
-        size: window.innerWidth < 600 ? 20 : 25 ,
-        value:product.rating,
-        isHalf: true,
-      };
-    
+
   return (
       <Fragment>
           <div className='ProductDetails'>
-              <div>
+              <div className='product-images'>
                       { product.images && product.images.map( (item,i ) => (
                           <img
                           className="CarouselImage"
@@ -40,41 +34,35 @@ const Product = ({match}) => {
                         
                         />
                       ))}
-                  
               </div>
-
-              <div>
-                  <div className='detailsBlock-1'>
-                      <h2>{product.name}</h2>
-                      <p>Product #{product._id}</p>
+              <div className='product-info'>
+                  <div className='price'>
+                      <h1>Price</h1>
+                      <h2>&#8377;{product.price}/-</h2>
+                    </div>
+                  <div className='product-details'>
+                      <h2>Product Description</h2>
+                      <p>{product.description}</p>
+                    </div>
+                    <div className='contact-details'><span>My contanct Details: </span><p>{product.contact}</p></div>
+                    <div className='location'><span>My Address: </span><p>{product.location}</p></div>
+                  <div className='date-love'>
+                    <h4>{product.created}</h4>
+                    <FavoriteIcon/>
                   </div>
-                  <div className='detailsBlock-2'>
-                      <ReactStars {...options} />
-                      <span> ({product.numOfReviews} Reviews)</span>
-                  </div>
-                  <div className='detailsBlock-3'>
-                      <h1>{`${product.price}`}</h1>
-                      <div className='detailsBlock-3-1'>
-                          <div className='detailsBlock-3-1-1'>
-                              <button>-</button>
-                              <input type="number" value="1"></input>
-                              <button>+</button>
-                          </div>{" "}
-                          <button>Add to cart</button>
-                      </div>
-                      <p>
-                          Status:{" "}
-                          <b className={product.Stock < 1 ? "redColor" : "greenColor"}>
-                    {product.Stock < 1 ? "OutOfStock" : "InStock"}
-                  </b>
-                      </p>
-                  </div>
-                  <div className='detailsBlock-4'>
-                      description: <p>{product.description}</p>
-                  </div>
-                  <button className="submitReview">Submit Review</button>
               </div>
           </div>
+
+
+          <div className='product-name'>
+          <div >{product.name}</div>
+          <div></div>
+          <div></div>
+          </div>
+
+        
+
+
       </Fragment>
     
   )
