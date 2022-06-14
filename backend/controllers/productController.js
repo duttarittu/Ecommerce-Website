@@ -23,10 +23,8 @@ exports.createProduct = catchAsyncErrors(async (req,res,next) => {
     });
 
     imagesLinks.push({
-      // public_id: result.public_id,
-      // url: result.secure_url,
-      public_id: "sample_id ",
-      url: "sampleurl.com"
+      public_id: result.public_id,
+      url: result.secure_url,
     });
   }
 

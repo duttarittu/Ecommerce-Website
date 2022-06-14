@@ -7,13 +7,20 @@
 
 }
 .product-images{
-  display: flex;
-  justify-content:right;
-  align-items: center;
+  display: grid;
+  margin-left: 5rem;
+  width: 100%;
+
 }
-.product-images> img{
-  width: 50%;
+
+ .CarouselImage{
+  width: 650px;
+  height: 333px;
+  margin-left: 8rem;
   object-fit: contain;
+  border: 3px solid black;
+  border-radius: 10px;
+  box-shadow: 3px 1px 23px 3px #888888;
 }
 .product-info{
   display: grid;

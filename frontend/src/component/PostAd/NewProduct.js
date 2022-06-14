@@ -48,7 +48,7 @@ const NewProduct = ({ history }) => {
 
     if (success) {
       alert.success("Product Created Successfully");
-      // history.push("/admin/dashboard");
+      // history.push("/");
       dispatch({ type: NEW_PRODUCT_RESET });
     }
   }, [dispatch, alert, error, history, success]);
@@ -59,11 +59,11 @@ const NewProduct = ({ history }) => {
     const myForm = new FormData();
 
     myForm.set("name", name);
-    myForm.set("locatoin", location);
-    myForm.set("contact", contact);
     myForm.set("price", price);
     myForm.set("description", description);
     myForm.set("category", category);
+    myForm.set("location", location);
+    myForm.set("contact", contact);
     // myForm.set("Stock", Stock);
 
     images.forEach((image) => {

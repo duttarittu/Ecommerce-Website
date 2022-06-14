@@ -25,7 +25,8 @@ const Product = ({match}) => {
       <Fragment>
           <div className='ProductDetails'>
               <div className='product-images'>
-                      { product.images && product.images.map( (item,i ) => (
+                <Carousel>
+                { product.images && product.images.map( (item,i ) => (
                           <img
                           className="CarouselImage"
                           key={i}
@@ -34,6 +35,8 @@ const Product = ({match}) => {
                         
                         />
                       ))}
+                </Carousel>
+                      
               </div>
               <div className='product-info'>
                   <div className='price'>
